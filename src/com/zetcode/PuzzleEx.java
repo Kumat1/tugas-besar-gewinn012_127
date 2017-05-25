@@ -188,7 +188,7 @@ public class PuzzleEx extends JFrame {
             current.add((Point) btn.getClientProperty("position"));
         }
         if (compareList(solution, current)) {
-            JOptionPane.showMessageDialog(panel, "FINISHED",
+            JOptionPane.showMessageDialog(panel, "SELESAI",
                     "CONGRATULATION", JOptionPane.INFORMATION_MESSAGE);
         }
     }
