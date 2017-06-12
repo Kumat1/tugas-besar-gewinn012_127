@@ -240,6 +240,7 @@ public class Puzzle extends JFrame {
         //setResizable(false);
         //setLocationRelativeTo(null);
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
     private BufferedImage resizeImage(BufferedImage originalImage, int width,
