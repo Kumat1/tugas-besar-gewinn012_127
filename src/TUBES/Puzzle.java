@@ -236,11 +236,6 @@ public class Puzzle extends JFrame {
             btn.addActionListener(new ClickAction());
         }
 
-        //pack();
-        //setResizable(false);
-        //setLocationRelativeTo(null);
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     private BufferedImage resizeImage(BufferedImage originalImage, int width,
