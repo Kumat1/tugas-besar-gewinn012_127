@@ -235,7 +235,6 @@ public class Puzzle extends JFrame {
             btn.setBorder(BorderFactory.createLineBorder(Color.blue));
             btn.addActionListener(new ClickAction());
         }
-
         //pack();
         //setResizable(false);
         //setLocationRelativeTo(null);
