@@ -114,10 +114,22 @@ public class Puzzle extends JFrame {
 
         JMenuBar menuBar = new JMenuBar();
         JMenu file = new JMenu("File"),
-                stage = new JMenu("Stage");
+                stage = new JMenu("Stage"),
+                note = new JMenu("Note");
         JMenuItem lanjut = new JMenuItem("Continue"),
                 baru = new JMenuItem("Restart"),
-                save = new JMenuItem("Save");
+                //save = new JMenuItem("Save"),
+                exit = new JMenuItem("Exit");
+
+        exit.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.exit(0);
+            }
+        });
+
         JMenu level = new JMenu("Level..");
         JMenuItem easylevel = new JMenuItem("Easy");
         JMenuItem mediumlevel = new JMenuItem("Medium");
@@ -126,6 +138,20 @@ public class Puzzle extends JFrame {
         easylevel.setActionCommand("Easy");
         mediumlevel.setActionCommand("Medium");
         hardlevel.setActionCommand("Hard");
+
+        JMenuItem  credits = new JMenuItem("Credits");
+        credits.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JOptionPane.showMessageDialog(Puzzle.this,
+                        "151402012 :: Adinda Gita Mehuli Br Ginting || " +
+                                "151402127 :: Hotnida Megawaty Manurung",
+                        "Credits by~~)",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        });
 
         ActionListener levelListener = new ActionListener() {
             @Override
@@ -141,15 +167,19 @@ public class Puzzle extends JFrame {
 
         file.add(lanjut);
         file.add(baru);
-        file.add(save);
+        //file.add(save);
+        file.add(exit);
 
         stage.add(level);
         level.add(easylevel);
         level.add(mediumlevel);
         level.add(hardlevel);
 
+        note.add(credits);
+
         menuBar.add(file);
         menuBar.add(stage);
+        menuBar.add(note);
 
         this.setJMenuBar(menuBar);
         this.setLocationRelativeTo(null);
@@ -236,6 +266,36 @@ public class Puzzle extends JFrame {
             btn.addActionListener(new ClickAction());
         }
 
+        //pack();
+        //setResizable(false);
+        //setLocationRelativeTo(null);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+        JLabel lblLabel = new JLabel("<html><h1>Timer</h1></html>");
+        JLabel lblTimer = new JLabel("<html><h1>00 : 00</h1></html>");
+       /* GridBagConstraints s = new GridBagConstraints() ;
+        if(shouldFill)
+        {
+            s.fill=GridBagConstraints.HORIZONTAL;
+
+
+        button = new JButton("START");
+        s.fill = GridBagConstraints.HORIZONTAL;
+        */
+        JButton start = new JButton("START");
+        start.setBounds(30, 50, 50, 20);
+        start.setToolTipText("Start!!");
+
+        //start.doClick();
+        JButton stop = new JButton("STOP");
+        stop.setBounds(30, 50, 50, 20);
+        stop.setToolTipText("Stop!!");
+
+        JPanel pnlStatus = new JPanel();
+        pnlStatus.add(lblLabel);
+        pnlStatus.add(lblTimer);
+        pnlStatus.add(start);
+        pnlStatus.add(stop);
+        add(pnlStatus,BorderLayout.CENTER);
     }
 
     private BufferedImage resizeImage(BufferedImage originalImage, int width,
